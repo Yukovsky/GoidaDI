@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url = 'https://maven.neoforged.net/releases' }
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = 'GoidaDI'
+
+// GoidaAuth lives right next to this project. A composite build lets GoidaDI compile against
+// GoidaAuth's freshly built classes (including the GoidaAuthApi / PostTransferHook we add to it)
+// without publishing a jar by hand. It is only a compileOnly dependency, so it is never bundled.
+if (file('../GoidaAuth/settings.gradle').exists()) {
+    includeBuild '../GoidaAuth'
+}
