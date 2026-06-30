@@ -171,10 +171,14 @@ CSV import format: `mcName,discordId[,discordName]`. JSON: array of `{ "mcName",
 
 ## Building from Source
 
-Discord Integration ships its NeoForge jar as a plain download rather than a Maven artifact, so it has to sit next to the project before compiling:
+Two compile-time pieces have to be in place first — both are pulled automatically by [the CI workflow](.github/workflows/build.yml), reproduce them locally the same way:
+
+1. **Discord Integration** ships its NeoForge jar as a plain download rather than a Maven artifact, so it has to sit next to the project before compiling.
+2. **GoidaAuth** is resolved through a Gradle composite build (see `settings.gradle`) — clone it as a sibling directory of `GoidaDI`.
 
 ```bash
 git clone https://github.com/Yukovsky/GoidaDI.git
+git clone https://github.com/Yukovsky/GoidaAuth.git   # sibling checkout, picked up by settings.gradle
 cd GoidaDI
 curl -L -o dcintegration-neoforge-3.0.7-1.21.jar \
   https://cdn.modrinth.com/data/rbJ7eS5V/versions/Tvnxofx4/dcintegration-neoforge-3.0.7-1.21.jar
@@ -183,7 +187,7 @@ curl -L -o dcintegration-neoforge-3.0.7-1.21.jar \
 
 Output: `build/libs/goidadi-<version>.jar`. Requires Java 21.
 
-GoidaAuth integration is picked up automatically and only at compile time if a sibling `../GoidaAuth` checkout exists (see `settings.gradle`); it is never required to build.
+Both are compile-time only (`compileOnly`) — neither ends up in the built jar, and at runtime GoidaDI works fine with either or both absent from the server.
 
 ---
 
