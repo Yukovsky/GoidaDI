@@ -1,0 +1,75 @@
+name: Bug Report
+description: Report a bug or unexpected behaviour
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, search [existing issues](https://github.com/Yukovsky/GoidaDI/issues).
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: GoidaDI Version
+      placeholder: "e.g. 1.1.7"
+    validations:
+      required: true
+
+  - type: input
+    id: env-version
+    attributes:
+      label: Minecraft / NeoForge Version
+      placeholder: "e.g. MC 1.21.1, NeoForge 21.1.228"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: related-mods
+    attributes:
+      label: Discord Integration / GoidaAuth present?
+      options:
+        - Both installed
+        - Discord Integration only
+        - GoidaAuth only
+        - Neither (fallback mode)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant Config
+      description: Paste the relevant part of `config/goidadi-common.toml` if it might matter.
+      render: toml
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Crash Report
+      description: Paste the relevant section from `logs/latest.log`.
+      render: text
+
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: Other Mods
+      description: List any mods that may be relevant.

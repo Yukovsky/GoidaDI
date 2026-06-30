@@ -1,0 +1,51 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+run/
+runs/
+src/generated/
+*.class
+
+# eclipse
+*.launch
+
+# idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+*.DS_Store
+
+# logs
+*.log
+build_log.txt
+message*.txt
+
+# third-party jar fetched manually for compileOnly (see README#building-from-source) — not ours to redistribute
+dcintegration-neoforge-*.jar
+
+# decompiled third-party contents used only for local research
+extracted/
+
+# windows reserved device name (git sometimes shows it as untracked)
+nul
+
+# AI / Claude Code — not published
+.claude/
+memory/
+PUBLISHING_RULES.md
+
+# internal planning docs — not published
+PLAN.md
+изначальное задание.txt
