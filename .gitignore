@@ -41,8 +41,6 @@ extracted/
 # windows reserved device name (git sometimes shows it as untracked)
 nul
 
-# AI / Claude Code — not published
-.claude/
 memory/
 PUBLISHING_RULES.md
 
